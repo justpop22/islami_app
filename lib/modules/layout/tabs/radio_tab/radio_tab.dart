@@ -118,11 +118,31 @@ class _RadioTabState extends State<RadioTab> {
                   }
 
                   if (snapshot.hasError) {
-                    return Center(child: Text(snapshot.error.toString()));
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Center(
+                          child: Text("Please check your Internet connection",textAlign: TextAlign.center,style: TextStyle(
+                            fontSize: 22,
+                          ),),
+                        ),
+                        Image.asset("assets/images/crisis.png"),
+                      ],
+                    );
                   }
 
                   if (!snapshot.hasData) {
-                    return const Center(child: Text("No Data"));
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Center(
+                          child: Text("No Data",textAlign: TextAlign.center,style: TextStyle(
+                            fontSize: 22,
+                          ),),
+                        ),
+                        Image.asset("assets/images/crisis.png"),
+                      ],
+                    );
                   }
       
                   final data = snapshot.data!;
